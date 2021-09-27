@@ -1,0 +1,19 @@
+_schema-version: "2.1"
+ID: dbmanage
+version: 0.0.1
+modules:
+- name: addondb
+  type: hdb
+  path: addondb
+  requires:
+  - name: addondb_hdi
+    properties:
+      TARGET_CONTAINER: ~{hdi-container-name}
+resources:
+- name: addondb_hdi
+  type: com.sap.xs.hdi-container
+  parameters:
+    config:
+      schema: ADDONDB
+  properties:
+    hdi-container-name: ${service-name}
